@@ -1,22 +1,53 @@
-"use strict";
+// "use strict";
+// require("dotenv").config();
 
-/** Shared config for application; can be required many places. */
+// /** Shared config for application; can be required many places. */
+
+// require("dotenv").config();
+// require("colors");
+
+// const SECRET_KEY = process.env.SECRET_KEY || "secret-dev";
+
+// const PORT = +process.env.PORT || 3001;
+
+// // Use dev database, testing database, or via env var, production database
+// function getDatabaseUri() {
+//   return (process.env.NODE_ENV === "test")
+//       ? "postgresql:///happyhour_test"
+//       : process.env.DATABASE_URL || "postgresql:///happyhour";
+// }
+
+// // Speed up bcrypt during tests, since the algorithm safety isn't being tested
+// const BCRYPT_WORK_FACTOR = 12;
+
+// console.log("Happy Hour Config:".green);
+// console.log("SECRET_KEY:".yellow, SECRET_KEY);
+// console.log("PORT:".yellow, PORT.toString());
+// console.log("BCRYPT_WORK_FACTOR".yellow, BCRYPT_WORK_FACTOR);
+// console.log("Database:".yellow, getDatabaseUri());
+// console.log("---");
+
+// module.exports = {
+//   SECRET_KEY,
+//   PORT,
+//   BCRYPT_WORK_FACTOR,
+//   getDatabaseUri,
+// };
+"use strict";
 
 require("dotenv").config();
 require("colors");
 
 const SECRET_KEY = process.env.SECRET_KEY || "secret-dev";
+const PORT = +process.env.PORT;
 
-const PORT = +process.env.PORT || 3001;
-
-// Use dev database, testing database, or via env var, production database
+// function getDatabaseUri() {
+//   return process.env.DATABASE_URL || "postgresql:///happyhour";
+// }
 function getDatabaseUri() {
-  return (process.env.NODE_ENV === "test")
-      ? "postgresql:///happyhour_test"
-      : process.env.DATABASE_URL || "postgresql:///happyhour";
+  return process.env.DATABASE_URL;
 }
 
-// Speed up bcrypt during tests, since the algorithm safety isn't being tested
 const BCRYPT_WORK_FACTOR = 12;
 
 console.log("Happy Hour Config:".green);

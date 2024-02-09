@@ -1,6 +1,7 @@
 /** Middleware for handling req authorization for routes. */
 
 const jwt = require("jsonwebtoken");
+require('dotenv').config();
 const { SECRET_KEY } = require("../config");
 const { UnauthorizedError } = require("../expressError");
 
